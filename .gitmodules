@@ -1,0 +1,3 @@
+[submodule "BonsaiTrees"]
+	path = BonsaiTrees
+	url = git@github.com:thraaawn/BonsaiTrees.git
