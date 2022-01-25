@@ -1,4 +1,5 @@
 rootProject.name = '1.18_davenonymous'
 include 'BonsaiTrees'
+include 'SlimeClicker'
 
 include 'workspace'

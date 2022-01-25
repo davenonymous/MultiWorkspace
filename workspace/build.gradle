@@ -13,7 +13,6 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'eclipse'
-apply plugin: 'com.matthewprenger.cursegradle'
 apply plugin: 'maven-publish'
 
 repositories {
@@ -26,6 +25,9 @@ repositories {
     maven { // TOP
         url "https://maven.k-4u.nl"
     }
+    maven { // TOP
+        url "https://cursemaven.com"
+    }
 }
 
 version = '1.0'
@@ -34,6 +36,7 @@ archivesBaseName = 'modid'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
+println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
     mappings channel: 'parchment' , version: '2021.12.19-1.18.1'
 
@@ -42,58 +45,60 @@ minecraft {
     runs {
         client {
             workingDirectory project.file('run')
-            // properties 'mixin.env.disableRefMap': 'true'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             // Recommended logging data for a userdev environment
-            // property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
 
             // Recommended logging level for the console
-            // property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.console.level', 'debug'
 
             mods {
-                BonsaiTrees {
+                bonsaitrees3 {
                     source project(':BonsaiTrees').sourceSets.main
+                }
+                slimeclicker {
+                    source project(':SlimeClicker').sourceSets.main
                 }
             }
         }
 
         server {
             workingDirectory project.file('run')
-            // properties 'mixin.env.disableRefMap': 'true'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             // Recommended logging data for a userdev environment
-            // property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
 
             // Recommended logging level for the console
-            // property 'forge.logging.console.level', 'debug'
+            property 'forge.logging.console.level', 'debug'
 
             mods {
-                BonsaiTrees {
+                bonsaitrees3 {
                     source project(':BonsaiTrees').sourceSets.main
+                }
+                slimeclicker {
+                    source project(':SlimeClicker').sourceSets.main
                 }
             }
         }
 
         data {
             workingDirectory project.file('run')
-            // properties 'mixin.env.disableRefMap': 'true'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             // Recommended logging data for a userdev environment
-            // property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
 
             // Recommended logging level for the console
-            // property 'forge.logging.console.level', 'debug'
-            args '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
+            property 'forge.logging.console.level', 'debug'
+
+            // args '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
+            args '--all', '--mod', 'bonsaitrees3', '--mod', 'slimeclicker', '--output', file('src/generated/resources/'), '--existing', project(':BonsaiTrees').sourceSets.main.resources.srcDirs[0], '--existing', project(':SlimeClicker').sourceSets.main.resources.srcDirs[0]
 
             mods {
-                BonsaiTrees {
+                bonsaitrees3 {
                     source project(':BonsaiTrees').sourceSets.main
+                }
+                slimeclicker {
+                    source project(':SlimeClicker').sourceSets.main
                 }
             }
         }
@@ -123,10 +128,6 @@ dependencies {
 
     implementation fg.deobf("curse.maven:the-one-probe-245211:3586969")
     implementation fg.deobf("curse.maven:configured-457570:3559398")
-
-    implementation fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}") {
-        transitive = false
-    }
 
     implementation project(':BonsaiTrees')
 }

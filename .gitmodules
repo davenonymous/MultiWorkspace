@@ -1,3 +1,6 @@
 [submodule "BonsaiTrees"]
 	path = BonsaiTrees
 	url = git@github.com:thraaawn/BonsaiTrees.git
+[submodule "SlimeClicker"]
+	path = SlimeClicker
+	url = git@github.com:thraaawn/SlimeClicker.git
