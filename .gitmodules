@@ -4,3 +4,6 @@
 [submodule "SlimeClicker"]
 	path = SlimeClicker
 	url = git@github.com:thraaawn/SlimeClicker.git
+[submodule "libnonymous"]
+	path = libnonymous
+	url = git@github.com:thraaawn/libnonymous.git
