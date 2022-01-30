@@ -28,6 +28,7 @@ repositories {
     maven { // TOP
         url "https://cursemaven.com"
     }
+    maven { url 'https://jitpack.io' }
 }
 
 version = '1.0'
@@ -53,6 +54,9 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
+                libnonymous {
+                    source project(':libnonymous').sourceSets.main
+                }
                 bonsaitrees3 {
                     source project(':BonsaiTrees').sourceSets.main
                 }
@@ -72,6 +76,9 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
+                libnonymous {
+                    source project(':libnonymous').sourceSets.main
+                }
                 bonsaitrees3 {
                     source project(':BonsaiTrees').sourceSets.main
                 }
@@ -91,9 +98,12 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // args '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
-            args '--all', '--mod', 'bonsaitrees3', '--mod', 'slimeclicker', '--output', file('src/generated/resources/'), '--existing', project(':BonsaiTrees').sourceSets.main.resources.srcDirs[0], '--existing', project(':SlimeClicker').sourceSets.main.resources.srcDirs[0]
+            args '--all', '--mod', 'libnonymous', '--mod', 'bonsaitrees3', '--mod', 'slimeclicker', '--output', file('src/generated/resources/'), '--existing', project(':BonsaiTrees').sourceSets.main.resources.srcDirs[0], '--existing', project(':SlimeClicker').sourceSets.main.resources.srcDirs[0]
 
             mods {
+                libnonymous {
+                    source project(':libnonymous').sourceSets.main
+                }
                 bonsaitrees3 {
                     source project(':BonsaiTrees').sourceSets.main
                 }
@@ -129,6 +139,8 @@ dependencies {
     implementation fg.deobf("curse.maven:the-one-probe-245211:3586969")
     implementation fg.deobf("curse.maven:configured-457570:3559398")
 
+    implementation project(':libnonymous')
+    implementation project(':SlimeClicker')
     implementation project(':BonsaiTrees')
 }
 
