@@ -7,3 +7,6 @@
 [submodule "libnonymous"]
 	path = libnonymous
 	url = git@github.com:thraaawn/libnonymous.git
+[submodule "RiddleChests"]
+	path = RiddleChests
+	url = git@github.com:thraaawn/RiddleChests.git
