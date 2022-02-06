@@ -1,27 +1,25 @@
 #!/bin/bash
 
-cmd.exe /c gradlew workspace:runData
+main() {
+  cmd.exe /c gradlew workspace:runData
 
-rm -rf "BonsaiTrees/src/generated/resources/"
-mkdir "BonsaiTrees/src/generated/resources/"
+  declare -A mods
+  mods[bonsaitrees3]="BonsaiTrees"
+  mods[libnonymous]="libnonymous"
+  mods[slimeclicker]="SlimeClicker"
+  mods[riddlechests]="RiddleChests"
 
-cp -r workspace/src/generated/resources/bonsaitrees3/* "BonsaiTrees/src/generated/resources/"
+  for modId in "${!mods[@]}"; do
+    local modPath=${mods[$modId]}
+    rm -rf "./${modPath}/src/generated/resources/"
+    mkdir -p "./${modPath}/src/generated/resources/"
 
-rm -rf BonsaiTrees/src/generated/resources/.cache
-rm -f BonsaiTrees/src/generated/resources/cache
+    cp -r workspace/src/generated/resources/${modId}/* "${modPath}/src/generated/resources/"
 
-rm -rf "libnonymous/src/generated/resources/"
-mkdir "libnonymous/src/generated/resources/"
+    rm -rf "./${modPath}/src/generated/resources/.cache"
+    rm -f "./${modPath}/src/generated/resources/cache"
 
-cp -r workspace/src/generated/resources/libnonymous/* "libnonymous/src/generated/resources/"
+  done
+}
 
-rm -rf libnonymous/src/generated/resources/.cache
-rm -f libnonymous/src/generated/resources/cache
-
-rm -rf "SlimeClicker/src/generated/resources/"
-mkdir "SlimeClicker/src/generated/resources/"
-
-cp -r workspace/src/generated/resources/slimeclicker/* "SlimeClicker/src/generated/resources/"
-
-rm -rf SlimeClicker/src/generated/resources/.cache
-rm -f SlimeClicker/src/generated/resources/cache
+main
