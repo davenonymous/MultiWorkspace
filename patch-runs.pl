@@ -10,7 +10,7 @@ my $modpaths = {
 	bonsaitrees3 => 'BonsaiTrees',
 	libnonymous => 'libnonymous',
 	slimeclicker => 'SlimeClicker',
-	#riddlechests => 'RiddleChests',
+	riddlechests => 'RiddleChests',
 };
 
 

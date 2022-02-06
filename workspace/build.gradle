@@ -63,9 +63,9 @@ minecraft {
                 slimeclicker {
                     source project(':SlimeClicker').sourceSets.main
                 }
-                //riddlechests {
-                //    source project(':RiddleChests').sourceSets.main
-                //}
+                riddlechests {
+                    source project(':RiddleChests').sourceSets.main
+                }
             }
         }
 
@@ -88,9 +88,9 @@ minecraft {
                 slimeclicker {
                     source project(':SlimeClicker').sourceSets.main
                 }
-                //riddlechests {
-                //    source project(':RiddleChests').sourceSets.main
-                //}
+                riddlechests {
+                    source project(':RiddleChests').sourceSets.main
+                }
             }
         }
 
@@ -116,9 +116,9 @@ minecraft {
                 slimeclicker {
                     source project(':SlimeClicker').sourceSets.main
                 }
-                //riddlechests {
-                //    source project(':RiddleChests').sourceSets.main
-                //}
+                riddlechests {
+                    source project(':RiddleChests').sourceSets.main
+                }
             }
         }
     }
@@ -151,7 +151,7 @@ dependencies {
     implementation project(':libnonymous')
     implementation project(':SlimeClicker')
     implementation project(':BonsaiTrees')
-    //implementation project(':RiddleChests')
+    implementation project(':RiddleChests')
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

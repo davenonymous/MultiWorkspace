@@ -2,6 +2,6 @@ rootProject.name = '1.18_davenonymous'
 include 'libnonymous'
 include 'BonsaiTrees'
 include 'SlimeClicker'
-//include 'RiddleChests'
+include 'RiddleChests'
 
 include 'workspace'
