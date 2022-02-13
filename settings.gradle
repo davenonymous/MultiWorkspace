@@ -3,5 +3,6 @@ include 'libnonymous'
 include 'BonsaiTrees'
 include 'SlimeClicker'
 include 'RiddleChests'
+include 'PipeGoggles'
 
 include 'workspace'

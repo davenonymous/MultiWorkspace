@@ -11,6 +11,7 @@ my $modpaths = {
 	libnonymous => 'libnonymous',
 	slimeclicker => 'SlimeClicker',
 	riddlechests => 'RiddleChests',
+	pipegoggles => 'PipeGoggles',
 };
 
 

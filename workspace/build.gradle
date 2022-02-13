@@ -66,6 +66,9 @@ minecraft {
                 riddlechests {
                     source project(':RiddleChests').sourceSets.main
                 }
+                pipegoggles {
+                    source project(':PipeGoggles').sourceSets.main
+                }
             }
         }
 
@@ -91,6 +94,9 @@ minecraft {
                 riddlechests {
                     source project(':RiddleChests').sourceSets.main
                 }
+                pipegoggles {
+                    source project(':PipeGoggles').sourceSets.main
+                }
             }
         }
 
@@ -104,7 +110,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // args '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
-            args '--all', '--mod', 'riddlechests', '--mod', 'libnonymous', '--mod', 'bonsaitrees3', '--mod', 'slimeclicker', '--output', file('src/generated/resources/'), '--existing', project(':BonsaiTrees').sourceSets.main.resources.srcDirs[0], '--existing', project(':SlimeClicker').sourceSets.main.resources.srcDirs[0]
+            args '--all', '--mod', 'pipegoggles', '--mod', 'riddlechests', '--mod', 'libnonymous', '--mod', 'bonsaitrees3', '--mod', 'slimeclicker', '--output', file('src/generated/resources/'), '--existing', project(':BonsaiTrees').sourceSets.main.resources.srcDirs[0], '--existing', project(':SlimeClicker').sourceSets.main.resources.srcDirs[0], '--existing', project(':PipeGoggles').sourceSets.main.resources.srcDirs[0]
 
             mods {
                 libnonymous {
@@ -118,6 +124,9 @@ minecraft {
                 }
                 riddlechests {
                     source project(':RiddleChests').sourceSets.main
+                }
+                pipegoggles {
+                    source project(':PipeGoggles').sourceSets.main
                 }
             }
         }
@@ -152,6 +161,7 @@ dependencies {
     implementation project(':SlimeClicker')
     implementation project(':BonsaiTrees')
     implementation project(':RiddleChests')
+    implementation project(':PipeGoggles')
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

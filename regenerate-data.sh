@@ -8,6 +8,7 @@ main() {
   mods[libnonymous]="libnonymous"
   mods[slimeclicker]="SlimeClicker"
   mods[riddlechests]="RiddleChests"
+  mods[pipegoggles]="PipeGoggles"
 
   for modId in "${!mods[@]}"; do
     local modPath=${mods[$modId]}

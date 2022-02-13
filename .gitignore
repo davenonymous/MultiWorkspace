@@ -1,5 +1,6 @@
 workspace/src
 workspace/build
 workspace/run
+workspace/mcmodsrepo
 .idea
 .gradle

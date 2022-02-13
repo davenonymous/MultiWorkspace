@@ -10,3 +10,6 @@
 [submodule "RiddleChests"]
 	path = RiddleChests
 	url = git@github.com:thraaawn/RiddleChests.git
+[submodule "PipeGoggles"]
+	path = PipeGoggles
+	url = git@github.com:thraaawn/PipeMaster.git
