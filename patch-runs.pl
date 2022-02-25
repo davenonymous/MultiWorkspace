@@ -12,6 +12,7 @@ my $modpaths = {
 	slimeclicker => 'SlimeClicker',
 	riddlechests => 'RiddleChests',
 	pipegoggles => 'PipeGoggles',
+	autovaria => 'AutoVaria',
 };
 
 

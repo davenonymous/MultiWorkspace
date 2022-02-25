@@ -9,6 +9,7 @@ main() {
   mods[slimeclicker]="SlimeClicker"
   mods[riddlechests]="RiddleChests"
   mods[pipegoggles]="PipeGoggles"
+  mods[autovaria]="AutoVaria"
 
   for modId in "${!mods[@]}"; do
     local modPath=${mods[$modId]}

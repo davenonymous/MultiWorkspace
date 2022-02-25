@@ -13,3 +13,6 @@
 [submodule "PipeGoggles"]
 	path = PipeGoggles
 	url = git@github.com:thraaawn/PipeMaster.git
+[submodule "AutoVaria"]
+	path = AutoVaria
+	url = git@github.com:thraaawn/AutoVaria.git
