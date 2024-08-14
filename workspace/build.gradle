@@ -39,7 +39,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'parchment' , version: '2021.12.19-1.18.1'
+    mappings channel: 'parchment' , version: '1.18.1-2022.03.06-1.18.2'
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
@@ -160,11 +160,16 @@ dependencies {
     //     })
     // }
 
+
     compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${jei_version}")
 
-    implementation fg.deobf("curse.maven:the-one-probe-245211:3586969")
+
+
+    compileOnly fg.deobf("curse.maven:lootr-361276:3672670")
+    implementation fg.deobf("curse.maven:the-one-probe-245211:3671753")
     implementation fg.deobf("curse.maven:configured-457570:3559398")
+    implementation fg.deobf("curse.maven:justabattery-509638:3681633")
 
     implementation project(':libnonymous')
     implementation project(':SlimeClicker')
