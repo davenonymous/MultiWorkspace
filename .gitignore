@@ -4,3 +4,4 @@ workspace/run
 workspace/mcmodsrepo
 .idea
 .gradle
+dist/

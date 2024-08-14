@@ -9,10 +9,6 @@ use Encode qw(decode encode);
 my $modpaths = {
 	bonsaitrees3 => 'BonsaiTrees',
 	libnonymous => 'libnonymous',
-	slimeclicker => 'SlimeClicker',
-	riddlechests => 'RiddleChests',
-	pipegoggles => 'PipeGoggles',
-	autovaria => 'AutoVaria',
 };
 
 

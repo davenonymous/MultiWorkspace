@@ -60,18 +60,6 @@ minecraft {
                 bonsaitrees3 {
                     source project(':BonsaiTrees').sourceSets.main
                 }
-                slimeclicker {
-                    source project(':SlimeClicker').sourceSets.main
-                }
-                riddlechests {
-                    source project(':RiddleChests').sourceSets.main
-                }
-                pipegoggles {
-                    source project(':PipeGoggles').sourceSets.main
-                }
-                autovaria {
-                    source project(':AutoVaria').sourceSets.main
-                }
             }
         }
 
@@ -91,18 +79,6 @@ minecraft {
                 bonsaitrees3 {
                     source project(':BonsaiTrees').sourceSets.main
                 }
-                slimeclicker {
-                    source project(':SlimeClicker').sourceSets.main
-                }
-                riddlechests {
-                    source project(':RiddleChests').sourceSets.main
-                }
-                pipegoggles {
-                    source project(':PipeGoggles').sourceSets.main
-                }
-                autovaria {
-                    source project(':AutoVaria').sourceSets.main
-                }
             }
         }
 
@@ -116,7 +92,7 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // args '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
-            args '--all', '--mod', 'autovaria', '--mod', 'pipegoggles', '--mod', 'riddlechests', '--mod', 'libnonymous', '--mod', 'bonsaitrees3', '--mod', 'slimeclicker', '--output', file('src/generated/resources/'), '--existing', project(':BonsaiTrees').sourceSets.main.resources.srcDirs[0], '--existing', project(':SlimeClicker').sourceSets.main.resources.srcDirs[0], '--existing', project(':PipeGoggles').sourceSets.main.resources.srcDirs[0], '--existing', project(':AutoVaria').sourceSets.main.resources.srcDirs[0]
+            args '--all', '--mod', 'libnonymous', '--mod', 'bonsaitrees3', '--output', file('src/generated/resources/'), '--existing', project(':BonsaiTrees').sourceSets.main.resources.srcDirs[0]
 
             mods {
                 libnonymous {
@@ -124,18 +100,6 @@ minecraft {
                 }
                 bonsaitrees3 {
                     source project(':BonsaiTrees').sourceSets.main
-                }
-                slimeclicker {
-                    source project(':SlimeClicker').sourceSets.main
-                }
-                riddlechests {
-                    source project(':RiddleChests').sourceSets.main
-                }
-                pipegoggles {
-                    source project(':PipeGoggles').sourceSets.main
-                }
-                autovaria {
-                    source project(':AutoVaria').sourceSets.main
                 }
             }
         }
@@ -172,11 +136,7 @@ dependencies {
     implementation fg.deobf("curse.maven:justabattery-509638:3681633")
 
     implementation project(':libnonymous')
-    implementation project(':SlimeClicker')
     implementation project(':BonsaiTrees')
-    implementation project(':RiddleChests')
-    implementation project(':PipeGoggles')
-    implementation project(':AutoVaria')
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..
