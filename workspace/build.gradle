@@ -39,7 +39,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'parchment' , version: '1.18.1-2022.03.06-1.18.2'
+    mappings channel: "${mappings_type}", version: "${mappings_version}"
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
@@ -111,32 +111,51 @@ jar {
 }
 
 dependencies {
-    // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
-    // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
-    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    // Minecraft
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
 
-    // if (findProject(':TheOneProbe') != null) {
-    //     implementation project(':TheOneProbe')
-    // } else {
-    //     implementation fg.deobf(project.dependencies.create("mcjty.theoneprobe:theoneprobe:${top_version}") {
-    //         transitive = false
-    //     })
-    // }
+    // Mixins
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    // Libnonymous
+    // implementation fg.deobf("com.davenonymous.libnonymous:libnonymous:${mc_version}-${libnonymous_version}")
+
+    // Just Enough Items API
+    compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
+
+    // The One Probe
+    implementation fg.deobf("curse.maven:the-one-probe-245211:${top_fileid}")
+
+    // Jade
+    implementation fg.deobf("curse.maven:jade-324717:${jade_fileid}-api-sources")
 
 
-    compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${jei_version}")
+    // Runtime Only
 
+    // Just Enough Items
+    runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 
+    // Configured
+    runtimeOnly fg.deobf("curse.maven:configured-457570:${configured_fileid}")
 
-    compileOnly fg.deobf("curse.maven:lootr-361276:3672670")
-    implementation fg.deobf("curse.maven:the-one-probe-245211:3671753")
-    implementation fg.deobf("curse.maven:configured-457570:3559398")
-    implementation fg.deobf("curse.maven:justabattery-509638:3681633")
+    // Spark
+    runtimeOnly fg.deobf("curse.maven:spark-361579:${spark_fileid}")
 
-    implementation project(':libnonymous')
-    implementation project(':BonsaiTrees')
+    // Biomes O' Plenty
+    runtimeOnly fg.deobf("curse.maven:biomes-o-plenty-220318:${bop_fileid}")
+
+    // Oh The Biomes You'll Go
+    runtimeOnly fg.deobf("curse.maven:oh-the-biomes-youll-go-247560:${byg_fileid}")
+
+    // TerraBlender
+    runtimeOnly fg.deobf("curse.maven:terrablender-563928:${terrablender_fileid}")
+
+    // GeckoLib
+    runtimeOnly fg.deobf("curse.maven:geckolib-388172:${geckolib_fileid}")
+
+    // CorgiLib
+    runtimeOnly fg.deobf("curse.maven:corgilib-693313:${corgilib_fileid}")
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

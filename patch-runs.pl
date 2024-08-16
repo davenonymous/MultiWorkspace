@@ -15,8 +15,8 @@ my $modpaths = {
 my @entries;
 foreach my $modId (sort keys($modpaths->%*)) {
 	my $modPath = $modpaths->{$modId};
-	push @entries, $modId . '%%$PROJECT_DIR$/../MultiWorkspace\\' . $modPath . '\out\production\resources';
-	push @entries, $modId . '%%$PROJECT_DIR$/../MultiWorkspace\\' . $modPath . '\out\production\classes';
+	push @entries, $modId . '%%$PROJECT_DIR$/../MultiWorkspace-1.19.2\\' . $modPath . '\out\production\resources';
+	push @entries, $modId . '%%$PROJECT_DIR$/../MultiWorkspace-1.19.2\\' . $modPath . '\out\production\classes';
 }
 
 my $mod_classes = sprintf('<env name="MOD_CLASSES" value="%s"/>', join(';', @entries));

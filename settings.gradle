@@ -1,4 +1,4 @@
-rootProject.name = '1.18_davenonymous'
+rootProject.name = '1.19.2'
 include 'libnonymous'
 include 'BonsaiTrees'
 
