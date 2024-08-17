@@ -15,8 +15,8 @@ my $modpaths = {
 my @entries;
 foreach my $modId (sort keys($modpaths->%*)) {
 	my $modPath = $modpaths->{$modId};
-	push @entries, $modId . '%%$PROJECT_DIR$/../MultiWorkspace-1.19.2\\' . $modPath . '\out\production\resources';
-	push @entries, $modId . '%%$PROJECT_DIR$/../MultiWorkspace-1.19.2\\' . $modPath . '\out\production\classes';
+	push @entries, $modId . '%%$PROJECT_DIR$/../MultiWorkspace-1.20.1\\' . $modPath . '\out\production\resources';
+	push @entries, $modId . '%%$PROJECT_DIR$/../MultiWorkspace-1.20.1\\' . $modPath . '\out\production\classes';
 }
 
 my $mod_classes = sprintf('<env name="MOD_CLASSES" value="%s"/>', join(';', @entries));
@@ -31,7 +31,7 @@ foreach my $file ($path->list->each) {
 		if($line =~ m/^\s*<env name="MOD_CLASSES"/) {
 			$overwrite .= "        " . $mod_classes . "\r\n";
 		} elsif($line =~ m/^\s*<module name/) {
-			$overwrite .= "    <module name=\"1.18_davenonymous.workspace.main\" />\r\n";
+			$overwrite .= "    <module name=\"1.20.1.workspace.main\" />\r\n";
 		} else {
 			$overwrite .= $line . "\r\n";
 			if($line =~ m/\s*<configuration/) {
