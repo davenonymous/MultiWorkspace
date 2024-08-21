@@ -52,6 +52,8 @@ minecraft {
 
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
                 libnonymous {
@@ -72,6 +74,9 @@ minecraft {
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
             mods {
                 libnonymous {
                     source project(':libnonymous').sourceSets.main
@@ -90,6 +95,9 @@ minecraft {
 
             // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
+
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             // args '--all', '--output', file('src/generated/resources/'), '--existing', sourceSets.main.resources.srcDirs[0]
             args '--all', '--mod', 'libnonymous', '--mod', 'bonsaitrees3', '--output', file('src/generated/resources/'), '--existing', project(':BonsaiTrees').sourceSets.main.resources.srcDirs[0]
@@ -118,7 +126,11 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     // Libnonymous
-    // implementation fg.deobf("com.davenonymous.libnonymous:libnonymous:${mc_version}-${libnonymous_version}")
+    if (findProject(':libnonymous') != null) {
+        // implementation project(':libnonymous')
+    } else {
+        // implementation fg.deobf("com.davenonymous.libnonymous:libnonymous:${mc_version}-${libnonymous_version}")
+    }
 
     // Just Enough Items API
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
